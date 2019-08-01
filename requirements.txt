@@ -1,0 +1,12 @@
+flask >= 1.1.1
+flask_sqlalchemy >= 2.4.0
+flask_migrate >= 2.5.2
+flask_login >= 0.4.1
+requests >= 2.22.0
+python_dotenv >= 0.10.3
+
+responses >= 0.10
+
+sphinx >= 2.0.0
+sphinx_rtd_theme >= 0.4.3
+sphinxcontrib_httpdomain >= 1.7.0
