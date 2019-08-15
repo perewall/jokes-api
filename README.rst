@@ -1,3 +1,10 @@
+.. image:: https://travis-ci.com/perewall/jokes-api.svg?branch=master
+    :target: https://travis-ci.com/perewall/jokes-api
+
+.. image:: https://codecov.io/gh/perewall/jokes-api/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/perewall/jokes-api
+
+
 Jokes API
 =========
 
