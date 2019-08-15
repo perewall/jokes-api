@@ -10,3 +10,6 @@ responses >= 0.10
 sphinx >= 2.0.0
 sphinx_rtd_theme >= 0.4.3
 sphinxcontrib_httpdomain >= 1.7.0
+
+coverage >= 4.5.4
+codecov >= 2.0.15
