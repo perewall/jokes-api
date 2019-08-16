@@ -1,3 +1,4 @@
+from os import environ
 from unittest import TestCase
 
 from responses import reset
@@ -11,7 +12,8 @@ class TestConfig(DefaultConfig):
     """Testing configuration"""
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    SQLALCHEMY_DATABASE_URI = environ.get(
+        'JOKES_API_DATABASE_URL', 'sqlite://')
 
 
 class TestApp(TestCase):
@@ -28,6 +30,7 @@ class TestApp(TestCase):
 
     def tearDown(self):
         reset()
+        db.session.commit()
         db.drop_all()
         self.app_context.pop()
 
