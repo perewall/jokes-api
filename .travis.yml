@@ -8,8 +8,7 @@ git:
   submodules: false
 
 install:
-  - pip install -r requirements.txt
-  - pip install psycopg2-binary mysql-connector-python
+  - pip install psycopg2-binary mysql-connector-python -r requirements.txt
 
 script:
   - coverage erase
@@ -22,40 +21,11 @@ services:
   - postgresql
   - mysql
 
-matrix:
-  include:
-    - python: 3.6
-      dist: xenial
-      name: Python 3.6 on Ubuntu Xenial with SQLite
-      env:
-        - JOKES_API_DATABASE_URL=sqlite://
+python:
+  - 3.6
+  - 3.7
 
-    - python: 3.6
-      dist: xenial
-      name: Python 3.6 on Ubuntu Xenial with PostgreSQL
-      env:
-        - JOKES_API_DATABASE_URL=postgres://postgres@localhost:5432/postgres
-
-    - python: 3.6
-      dist: xenial
-      name: Python 3.6 on Ubuntu Xenial with MySQL
-      env:
-        - JOKES_API_DATABASE_URL=mysql+mysqlconnector://travis@localhost:3306/travis
-
-    - python: 3.7
-      dist: bionic
-      name: Python 3.7 on Ubuntu Bionic with SQLite
-      env:
-        - JOKES_API_DATABASE_URL=sqlite://
-
-    - python: 3.7
-      dist: xenial  # postgres on bionic is not working
-      name: Python 3.7 on Ubuntu Xenial with PostgreSQL
-      env:
-        - JOKES_API_DATABASE_URL=postgres://postgres@localhost:5432/postgres
-
-    - python: 3.7
-      dist: bionic
-      name: Python 3.7 on Ubuntu Bionic with MySQL
-      env:
-        - JOKES_API_DATABASE_URL=mysql+mysqlconnector://travis@localhost:3306/travis
+env:
+  - JOKES_API_DATABASE_URL=sqlite://
+  - JOKES_API_DATABASE_URL=postgres://postgres@localhost:5432/postgres
+  - JOKES_API_DATABASE_URL=mysql+mysqlconnector://travis@localhost:3306/travis
